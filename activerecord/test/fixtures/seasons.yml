@@ -1,0 +1,11 @@
+winter:
+  name: Winter
+
+spring:
+  name: Spring
+
+summer:
+  name: Summer
+
+fall:
+  name: Fall
