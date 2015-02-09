@@ -1009,9 +1009,7 @@ module ActiveRecord
     end
 
     def reverse_sql_order(order_query)
-      if order_query.empty? && primary_key
-        order_query = ["#{quoted_table_name}.#{quoted_primary_key} ASC"]
-      end
+      order_query = ["#{quoted_table_name}.#{quoted_primary_key} ASC"] if order_query.empty?
 
       order_query.flat_map do |o|
         case o

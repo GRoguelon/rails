@@ -169,7 +169,7 @@ module ActiveRecord
           to_a.last(limit)
         end
       else
-        find_last
+        primary_key ? find_last : find_nth(0, offset_index)
       end
     end
 
