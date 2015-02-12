@@ -27,6 +27,7 @@ require 'models/joke'
 require 'models/bird'
 require 'models/car'
 require 'models/bulb'
+require 'models/season'
 require 'rexml/document'
 
 class FirstAbstractClass < ActiveRecord::Base
@@ -1124,6 +1125,10 @@ class BasicsTest < ActiveRecord::TestCase
 
   def test_last
     assert_equal Developer.all.merge!(:order => 'id desc').first, Developer.last
+  end
+
+  def test_last_without_primary_key
+    assert_equal Season.all.to_a.last, Season.last
   end
 
   def test_all

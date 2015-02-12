@@ -516,12 +516,11 @@ module ActiveRecord
       if loaded?
         @records.last
       else
-        @last ||=
-          if limit_value
-            to_a.last
-          else
-            reverse_order.limit(1).to_a.first
-          end
+        if limit_value || !primary_key
+          load.last
+        else
+          reverse_order.first
+        end
       end
     end
   end

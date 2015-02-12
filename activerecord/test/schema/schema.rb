@@ -591,6 +591,10 @@ ActiveRecord::Schema.define do
     t.integer :tags_with_nullify_count, default: 0
   end
 
+  create_table :seasons, id: false, force: true do |t|
+    t.string :name, null: false
+  end
+
   create_table :serialized_posts, force: true do |t|
     t.integer :author_id
     t.string :title, null: false
